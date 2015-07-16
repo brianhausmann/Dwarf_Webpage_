@@ -1,14 +1,14 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 import numpy as np
 import collections
 import numpy.lib.recfunctions as rfn
 
 
-# In[20]:
+# In[5]:
 
 with open('webpage_draft2.html','w') as f:
   
@@ -55,9 +55,14 @@ with open('webpage_draft2.html','w') as f:
             ind_name = new_data['name'][i].decode('UTF-8')
             f.write('{}<br>\n'.format(ind_name))
             f.write('<em>u</em>-<em>r</em> = {:.4}<br>\n'.format(new_data['u'][i]-new_data['r'][i]))
+            warn_val = new_data['zwarning'][i]
+            if warn_val != 0:
+                warn = '(*)'
+            else:
+                warn = ''
             shift=new_data['redshift'][i]
             if shift <100: 
-                f.write('<em>z</em>  = {:.4f}<br>\n'.format(shift))
+                f.write('<em>z</em>  = {:.4f}{}<br>\n'.format(shift,warn))
             elif type(shift) != int:
                 f.write('<em>z</em> = N/A<br>\n')
             f.write('Notes: <br>\n</td>')
