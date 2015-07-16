@@ -8,7 +8,7 @@ import collections
 import numpy.lib.recfunctions as rfn
 
 
-# In[5]:
+# In[6]:
 
 with open('webpage_draft2.html','w') as f:
   
@@ -64,7 +64,7 @@ with open('webpage_draft2.html','w') as f:
             if shift <100: 
                 f.write('<em>z</em>  = {:.4f}{}<br>\n'.format(shift,warn))
             elif type(shift) != int:
-                f.write('<em>z</em> = N/A<br>\n')
+                f.write('<em>z</em> = N/A{}<br>\n'.format(warn))
             f.write('Notes: <br>\n</td>')
         f.write('</tr>')
         f.write('</tbody>')
